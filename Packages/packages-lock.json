@@ -11,6 +11,15 @@
       },
       "hash": "422eb124051c81a9bc3f422ebf190703c5053514"
     },
+    "com.natteens.retropsxurp": {
+      "version": "https://github.com/Natteens/retropsx-urp.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "17.0.3"
+      },
+      "hash": "7102c2558d8addec2584d22e48ee50fa2bc217bd"
+    },
     "com.unity.burst": {
       "version": "2.0.0",
       "depth": 1,

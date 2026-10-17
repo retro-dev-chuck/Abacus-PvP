@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b6f0b012a7858661098d8abaf7f3da0, type: 3}
+  m_Name: RetroPSXPipelineProfile Pipeline
+  m_EditorClassIdentifier: RetroPSX.Runtime::RetroPSX.RetroPSXPipelineProfile
+  enabled: 1
+  sceneViewPreview: 1
+  raster: {fileID: 11400000, guid: 51e41ba062088554fb2401c8921b8ad2, type: 2}
+  geometry: {fileID: 11400000, guid: 55ce97f5ec62bb64aaac0f106ce08555, type: 2}
+  color: {fileID: 11400000, guid: aaee9a994d2e30e4ea06782572eeea97, type: 2}
+  lighting: {fileID: 11400000, guid: 882eb39b7b8f07d4d8d0daf9ea1b3846, type: 2}
+  fog: {fileID: 11400000, guid: f1f9b6ba461dfd24d87e070fbda90092, type: 2}
+  volumetrics: {fileID: 11400000, guid: 6e99c53669f835c4aa025365d3a273ea, type: 2}
+  display: {fileID: 11400000, guid: 2630709a8fd0f1049b7e8d99311210d4, type: 2}
+  debug: {fileID: 11400000, guid: c4ea2c235f762c149a4793ce7e4bfcc6, type: 2}
+  ui: {fileID: 11400000, guid: 7f161d00ab5715b4d915a5e75342c952, type: 2}

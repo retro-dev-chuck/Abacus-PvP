@@ -45,7 +45,14 @@ public class PlayerController : NetworkBehaviour
         var stick = GetClickedStick();
         if (stick != null)
         {
-            stick.MoveOneUp();
+            if (stick.IsTop)
+            {
+                stick.MoveOneDown();
+            }
+            else
+            {
+                stick.MoveOneUp();
+            }
         }
     }
     
@@ -59,7 +66,14 @@ public class PlayerController : NetworkBehaviour
         var stick = GetClickedStick();
         if (stick != null)
         {
-            stick.MoveOneDown();
+            if (stick.IsTop)
+            {
+                stick.MoveOneUp();
+            }
+            else
+            {
+                stick.MoveOneDown();
+            }
         }
     }
 

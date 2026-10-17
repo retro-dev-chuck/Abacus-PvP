@@ -1,20 +1,9 @@
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class BottomStickManager : StickManager
 {
-
-    [SerializeField] private Transform top;
-    [SerializeField] private Transform bottom;
-    [SerializeField] private Transform[] stones;
-    private Stack<Transform> stonesTop = new Stack<Transform>();
-    private Stack<Transform> stonesBottom = new Stack<Transform>();
-        
-    public int CurrentValue => stonesTop?.Count * SingleStoneValue ?? 0;
-
     private const int SingleStoneValue = 1;
-    private const float SingleStoneHeight = 0.08f; 
     
     //for late joiners, we do this so we can adjust on join yes
     public NetworkVariable<int> topStoneCount = new NetworkVariable<int>(0, NetworkVariableReadPermission.Everyone,
@@ -28,6 +17,10 @@ public class BottomStickManager : StickManager
         MoveInstant(topStoneCount.Value); 
     }
 
+    public override void OnNetworkDespawn()
+    {
+        topStoneCount.OnValueChanged -= HandleStoneValueChanged;
+    }
     //this is for a late join, so if other player has moved stones around we move these instantly so they get the synced version
     private void MoveInstant(int count)
     {
@@ -78,6 +71,8 @@ public class BottomStickManager : StickManager
 
     private void Initialize()
     {
+        stonesBottom.Clear();
+        stonesTop.Clear();
         foreach (Transform stone in stones)
         {
             stonesBottom.Push(stone);
@@ -114,5 +109,10 @@ public class BottomStickManager : StickManager
             stone.localPosition = bottom.localPosition + (stonesBottom.Count - 1) * SingleStoneHeight * Vector3.left;
             topStoneCount.Value = stonesTop.Count;
         }
+    }
+
+    public override int GetCurrentValue()
+    {
+        return stonesTop?.Count * SingleStoneValue ?? 0;
     }
 }

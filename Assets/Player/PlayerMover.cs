@@ -9,6 +9,9 @@ public class PlayerMover : MonoBehaviour
         Transform t = transform;
         Vector3 movement = t.forward * movementInput.y;
         movement += t.right * movementInput.x;
-        characterController.Move( movement * velocityMultiplier);
+        if (characterController.enabled)
+        {
+            characterController.Move( movement * velocityMultiplier);
+        }
     }
 }

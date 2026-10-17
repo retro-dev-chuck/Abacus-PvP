@@ -6,6 +6,9 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private CharacterController characterController;
     public void Move(Vector2 movementInput)
     {
-        characterController.Move(new Vector3(-movementInput.x, 0 , -movementInput.y) * velocityMultiplier);
+        Transform t = transform;
+        Vector3 movement = t.forward * movementInput.y;
+        movement += t.right * movementInput.x;
+        characterController.Move( movement * velocityMultiplier);
     }
 }

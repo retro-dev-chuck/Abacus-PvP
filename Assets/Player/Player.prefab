@@ -155,7 +155,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2248889314291433376}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1692831192
+  GlobalObjectIdHash: 936832391
   InScenePlacedSourceGlobalObjectIdHash: 0
   m_InScenePlacedDisabledByDefault: 0
   DeferredDespawnTick: 0
@@ -327,6 +327,8 @@ MonoBehaviour:
   lookRef: {fileID: -5630151704836100654, guid: 8f86e104780a8ce4f8b879a609da0d92, type: 3}
   movementSmoothTime: 0.1
   sensitivityMultiplier: 1
+  playerCamera: {fileID: 6130400265336332277}
+  lookSensitivity: 1
 --- !u!114 &7702761420487855789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +353,7 @@ MonoBehaviour:
   RotationMaxInterpolationTime: 0.1
   ScaleLerpSmoothing: 1
   ScaleMaxInterpolationTime: 0.1
-  AuthorityMode: 0
+  AuthorityMode: 1
   TickSyncChildren: 0
   UseUnreliableDeltas: 0
   SyncPositionX: 1
@@ -457,6 +459,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   input: {fileID: 3707045308272174975}
   mover: {fileID: 4284202035080654991}
+  playerCamera: {fileID: 1158975059230970416}
 --- !u!1001 &593162875072237448
 PrefabInstance:
   m_ObjectHideFlags: 0

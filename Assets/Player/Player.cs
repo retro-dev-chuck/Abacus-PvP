@@ -12,13 +12,26 @@ public class Player : NetworkBehaviour
     [Header("Movement")]
     [SerializeField] private float movementSmoothTime = 0.1f;
     [SerializeField] private float sensitivityMultiplier = 1.0f;
+    [SerializeField] private Transform playerCamera;
     
+    private bool invertY = true;
+    
+    private const float MaxPitch = 89f;
+    [SerializeField]
+    private float lookSensitivity = .1f;
     public event Action OnPressedInteract;
     public event Action OnPressedInteractAlt;
-
-    private Vector2 rawInput;
     public Vector2 MovementInput { get; private set; }
+
     
+    private Vector2 rawInput;
+    private float pitch = 0;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     private void Update()
     {
         if (!IsOwner)
@@ -37,5 +50,19 @@ public class Player : NetworkBehaviour
             OnPressedInteractAlt?.Invoke();
             Debug.LogWarning("Pressed LMB");
         }
+
+        LookUpdate();
+
+    }
+    
+    private void LookUpdate()
+    {
+        var lookInput = lookRef.action.ReadValue<Vector2>();
+
+        pitch += lookInput.y * lookSensitivity * (invertY ? -1 : 1);
+        pitch = Mathf.Clamp(pitch, -MaxPitch, MaxPitch);
+
+        playerCamera.localRotation = Quaternion.Euler(pitch, 0, 0);
+        transform.Rotate(0, lookInput.x * lookSensitivity, 0);
     }
 }

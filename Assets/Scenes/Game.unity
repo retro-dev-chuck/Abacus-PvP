@@ -1643,6 +1643,7 @@ GameObject:
   - component: {fileID: 2117456893}
   - component: {fileID: 2117456890}
   - component: {fileID: 2117456889}
+  - component: {fileID: 2117456896}
   m_Layer: 0
   m_Name: ConnectionSetup
   m_TagString: Untagged
@@ -1703,7 +1704,7 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 6b2600f0aef5f14beb63cfa635748f5b, type: 2}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
+    ConnectionApproval: 1
     ConnectionData: 
     EnableTimeResync: 0
     TimeResyncInterval: 30
@@ -1821,6 +1822,22 @@ MonoBehaviour:
     InitializeFailed:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &2117456896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117456888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a44569e8506d145968a872d101e2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawnManager
+  player1SpawnPosition: {x: -5, y: 1, z: 0}
+  player2SpawnPosition: {x: 5, y: 1, z: 0}
+  player1Rotation: {x: 0, y: 90, z: 0}
+  player2Rotation: {x: 0, y: -90, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

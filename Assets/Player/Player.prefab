@@ -460,6 +460,9 @@ MonoBehaviour:
   input: {fileID: 3707045308272174975}
   mover: {fileID: 4284202035080654991}
   playerCamera: {fileID: 1158975059230970416}
+  abacusInputLayer:
+    serializedVersion: 2
+    m_Bits: 64
   bottomStickManagers:
   - {fileID: 2779963972879926566}
   - {fileID: 3816423755437905401}
@@ -476,11 +479,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7045644942293654166, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7045644942293654166, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045644942293654166, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
       propertyPath: m_LocalPosition.z

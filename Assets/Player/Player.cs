@@ -29,7 +29,8 @@ public class Player : NetworkBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     private void Update()
@@ -50,8 +51,8 @@ public class Player : NetworkBehaviour
             OnPressedInteractAlt?.Invoke();
             Debug.LogWarning("Pressed LMB");
         }
-
-        LookUpdate();
+//disable looking around
+        //LookUpdate();
 
     }
     

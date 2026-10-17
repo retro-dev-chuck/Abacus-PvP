@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class BottomStickManager : NetworkBehaviour
+public class BottomStickManager : StickManager
 {
 
     [SerializeField] private Transform top;
@@ -84,7 +84,7 @@ public class BottomStickManager : NetworkBehaviour
         }
     }
 
-    public void MoveOneUp()
+    public override void MoveOneUp()
     {
         if (!IsOwner)
         {
@@ -101,7 +101,7 @@ public class BottomStickManager : NetworkBehaviour
         
     }
 
-    public void MoveOneDown()
+    public override void MoveOneDown()
     {
         if (!IsOwner)
         {

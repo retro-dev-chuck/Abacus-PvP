@@ -21,6 +21,10 @@ public class Player : NetworkBehaviour
     
     private void Update()
     {
+        if (!IsOwner)
+        {
+            return;
+        }
         rawInput = moveRef.action.ReadValue<Vector2>();
         MovementInput = Vector2.MoveTowards(MovementInput, rawInput, Time.deltaTime / movementSmoothTime);
         if (Mouse.current.leftButton.wasPressedThisFrame)

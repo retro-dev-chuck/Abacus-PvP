@@ -460,6 +460,12 @@ MonoBehaviour:
   input: {fileID: 3707045308272174975}
   mover: {fileID: 4284202035080654991}
   playerCamera: {fileID: 1158975059230970416}
+  bottomStickManagers:
+  - {fileID: 2779963972879926566}
+  - {fileID: 3816423755437905401}
+  - {fileID: 7573262039609047876}
+  - {fileID: 4541749723452620300}
+  - {fileID: 5354222965816502842}
 --- !u!1001 &593162875072237448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -517,6 +523,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
+--- !u!114 &2779963972879926566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3363974503410764462, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
+  m_PrefabInstance: {fileID: 593162875072237448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725f7d0437ac3b34e98d17193246c89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BottomStickManager
+--- !u!114 &3816423755437905401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4381438742596704881, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
+  m_PrefabInstance: {fileID: 593162875072237448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725f7d0437ac3b34e98d17193246c89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BottomStickManager
+--- !u!114 &4541749723452620300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3980301579008766340, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
+  m_PrefabInstance: {fileID: 593162875072237448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725f7d0437ac3b34e98d17193246c89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BottomStickManager
+--- !u!114 &5354222965816502842 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4788825135334974898, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
+  m_PrefabInstance: {fileID: 593162875072237448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725f7d0437ac3b34e98d17193246c89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BottomStickManager
+--- !u!114 &7573262039609047876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6999429238302029004, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}
+  m_PrefabInstance: {fileID: 593162875072237448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 725f7d0437ac3b34e98d17193246c89a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BottomStickManager
 --- !u!4 &7637118444639458590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7045644942293654166, guid: 26e582df13e68a44db75e9b4bff907de, type: 3}

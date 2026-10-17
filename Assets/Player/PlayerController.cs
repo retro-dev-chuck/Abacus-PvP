@@ -7,6 +7,9 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Player input;
     [SerializeField] private PlayerMover mover;
     [SerializeField] private Camera playerCamera;
+
+    [SerializeField] private BottomStickManager[] bottomStickManagers;
+     
     private void Update()
     {
         if (!IsOwner)
@@ -20,7 +23,30 @@ public class PlayerController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        if (!IsOwner) { return; } // ALL players will read this method, only player owner will execute past this line
-        playerCamera.enabled = true; // only enable YOUR PLAYER'S camera, all others will stay disabled
+        if (!IsOwner)
+        {
+            return;
+        }
+        
+        playerCamera.enabled = true;
+        input.OnPressedInteract += HandlePressInteract;
+        input.OnPressedInteractAlt += HandlePressInteractAlt;
+    }
+
+
+    private void HandlePressInteract()
+    {
+        foreach (BottomStickManager bottomStickManager in bottomStickManagers)
+        {
+            bottomStickManager.MoveOneUp();
+        }
+    }
+    
+    private void HandlePressInteractAlt()
+    {
+        foreach (BottomStickManager bottomStickManager in bottomStickManagers)
+        {
+            bottomStickManager.MoveOneDown();
+        }
     }
 }

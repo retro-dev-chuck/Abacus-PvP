@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Services.Multiplayer::Unity.Services.Multiplayer.Components.SessionConnector
   m_MultiplayerSession: {fileID: 11400000, guid: b6d73725320dd4747929d2b1f1ea9b10, type: 2}
   m_ConnectorType: 0
-  m_CreateOrJoinSessionId: Casual_co-op_ID
+  m_CreateOrJoinSessionId: mytestid2
   m_CreateSessionOptions:
     m_MaxPlayers: 2
     m_SessionName: 

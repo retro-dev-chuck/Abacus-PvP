@@ -48,6 +48,11 @@ public class PlayerTutorialManager : NetworkBehaviour
       }
 
       Debug.LogWarning($"Hello value is {CalculateAbacusValue()}" );
+      if (tutorialRoundManager != null)
+      {
+         tutorialRoundManager.valueTmp.text = CalculateAbacusValue().ToString("D5");
+      }
+      
       if (tutorialRoundManager.CurrentNumber() == CalculateAbacusValue())
       {
          tutorialRoundManager.SelectNextNumber();

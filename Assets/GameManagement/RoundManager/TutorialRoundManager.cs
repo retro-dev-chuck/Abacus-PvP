@@ -1,9 +1,13 @@
+using System.Collections;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
 public class TutorialRoundManager : NetworkBehaviour
 {
+    
+    public TextMeshProUGUI valueTmp;
+    public TextMeshProUGUI feedbackTmp;
     [SerializeField] private TextMeshPro[] numberDisplays;
     
     public int[] tutorialNumbers = new[] { 2, 24, 36, 483, 9206 };
@@ -57,13 +61,22 @@ public class TutorialRoundManager : NetworkBehaviour
             PlayerPrefs.SetInt(TutorialCompletionSaveKey, 1);
             PlayerPrefs.Save();
             Debug.LogWarning("Tutorial Completed!");
+            feedbackTmp.text = "Tutorial Done!";
             return;
         }
 
+        feedbackTmp.text = "Good job!\nNext number!";
+       
+        StartCoroutine(HideAfter2s());
         currentIndex.Value++;
         UpdateTexts(tutorialNumbers[currentIndex.Value]);
     }
 
+    private IEnumerator HideAfter2s()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        feedbackTmp.text = "";
+    }
     public int CurrentNumber()
     {
         if (tutorialNumbers == null || currentIndex.Value >= tutorialNumbers.Length)

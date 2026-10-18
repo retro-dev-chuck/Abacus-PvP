@@ -1,18 +1,23 @@
 using System;
 using Unity.Netcode;
+using Unity.Services.Multiplayer.Components;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    private const string TutorialSceneName = "Tutorial";
-    private const string GameSceneName = "Game";
-    
+    [SerializeField] private SessionConnectorBehaviour sessionConnector;
     [SerializeField] private Button tutorialButton;
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
     [SerializeField] private Button clientDisconnectButton;
+    
+    
+    
+    private const string TutorialSceneName = "Tutorial";
+    private const string GameSceneName = "Game";
+    
     
     private void Awake ()
     {

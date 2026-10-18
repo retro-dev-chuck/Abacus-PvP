@@ -75,7 +75,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d7cfd8603926afa42ac3b75eecbc1b1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BottomStickManager
   ShowTopMostFoldoutHeaderGroup: 1
+  isTop: 0
   top: {fileID: 9109478044229069172}
   bottom: {fileID: 4732071511588539885}
   stones:
@@ -272,6 +273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7205515124749997744, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45d3c92396554344d81e9ea56d6dad7e, type: 2}
     - target: {fileID: 7579763053755976842, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
       propertyPath: m_Name
       value: Stone (1)
@@ -350,6 +355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7205515124749997744, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45d3c92396554344d81e9ea56d6dad7e, type: 2}
     - target: {fileID: 7579763053755976842, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
       propertyPath: m_Name
       value: Stone (3)
@@ -428,6 +437,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7205515124749997744, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45d3c92396554344d81e9ea56d6dad7e, type: 2}
     - target: {fileID: 7579763053755976842, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
       propertyPath: m_Name
       value: Stone (4)
@@ -506,6 +519,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7205515124749997744, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45d3c92396554344d81e9ea56d6dad7e, type: 2}
     - target: {fileID: 7579763053755976842, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
       propertyPath: m_Name
       value: Stone (2)
@@ -580,6 +597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7205515124749997744, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 45d3c92396554344d81e9ea56d6dad7e, type: 2}
     - target: {fileID: 7579763053755976842, guid: e07ab2b7c303c314fbc420003b5e49a3, type: 3}
       propertyPath: m_Name
       value: Stone

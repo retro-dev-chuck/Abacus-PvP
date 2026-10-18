@@ -11,6 +11,8 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private LayerMask abacusInputLayer; 
     
     [SerializeField] private BottomStickManager[] bottomStickManagers;
+    [SerializeField] private TopStickManager[] topStickManagers;
+    
     private void Update()
     {
         if (!IsOwner)

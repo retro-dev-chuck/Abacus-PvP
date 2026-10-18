@@ -23,8 +23,14 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/Game.unity
+    m_path: Assets/MainMenu/MainMenu.unity
+    m_guid: 354a95a35c45d2d459ccba4bd2734fd2
+  - m_enabled: 1
+    m_path: Assets/GameManagement/Game.unity
     m_guid: 94659d20428b566959ae961951f03a7c
+  - m_enabled: 1
+    m_path: Assets/Tutorial/Tutorial.unity
+    m_guid: 663995aa14b1b274f8fc1060ecad5853
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

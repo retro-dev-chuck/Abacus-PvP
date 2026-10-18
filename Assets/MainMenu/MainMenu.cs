@@ -1,5 +1,10 @@
 using System;
+using System.Threading.Tasks;
+using TMPro;
 using Unity.Netcode;
+using Unity.Services.Authentication;
+using Unity.Services.Core;
+using Unity.Services.Multiplayer;
 using Unity.Services.Multiplayer.Components;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,12 +17,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button hostButton;
     [SerializeField] private Button clientButton;
     [SerializeField] private Button clientDisconnectButton;
+    [SerializeField] private TMP_InputField codeInputField;
     
     
     
     private const string TutorialSceneName = "Tutorial";
     private const string GameSceneName = "Game";
-    
+    private const string LobbySceneName = "Lobby";
     
     private void Awake ()
     {
@@ -66,14 +72,87 @@ public class MainMenu : MonoBehaviour
     {
     }
 
-    private void HandleClientClicked()
+    private async void HandleClientClicked()
     {
+        clientButton.interactable = false;
+        await UnityServices.InitializeAsync();
+        while (AuthenticationService.Instance == null || !AuthenticationService.Instance.IsSignedIn)
+        {
+            await Task.Delay(200);
+        }
+        
+        if (codeInputField == null || string.IsNullOrEmpty(codeInputField.text))
+        {
+            Debug.LogWarning("Please enter a room code first!");
+            return;
+        }
+
+        string code = codeInputField.text;
+        var sessionConnectorBehaviour = FindObjectOfType<SessionConnectorBehaviour>();
+        if (sessionConnectorBehaviour != null)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
+            Debug.Log($"Configuring session connector to join code: {code}");
+            sessionConnectorBehaviour.SessionConnector.WithJoinByCode(code);
+            sessionConnectorBehaviour.Execute();
+        }
+        else
+        {
+            Debug.LogError("SessionConnector could not be found in the scene!");
+        }
+
+        clientButton.interactable = true;
+    }
+    private void OnClientConnected(ulong clientId)
+    {
+        if (clientId == NetworkManager.Singleton.LocalClientId)
+        {
+            NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+            Debug.Log("Client connected successfully! Moving to Lobby Scene...");
+            
+            SceneManager.LoadScene(LobbySceneName, LoadSceneMode.Single);
+        }
     }
 
     //turns out if you directly load scene after starting host -> you get the player there? instead of loading -> then hosting
-    private void HandleHostClicked()
+    private async void HandleHostClicked()
     {
-        NetworkManager.Singleton.StartHost();
-        NetworkManager.Singleton.SceneManager.LoadScene(GameSceneName, LoadSceneMode.Single);
+        hostButton.interactable = false;
+        await UnityServices.InitializeAsync();
+        while (AuthenticationService.Instance == null || !AuthenticationService.Instance.IsSignedIn)
+        {
+            await Task.Delay(200);
+        }
+
+        var sessionConnectorBehaviour = FindObjectOfType<SessionConnectorBehaviour>();
+        if (sessionConnectorBehaviour != null)
+        {
+            Debug.Log("Creating host session...");
+            
+            sessionConnectorBehaviour.SessionConnector.SuccessfulExecution.AddListener(OnHostSessionCreated);
+
+            sessionConnectorBehaviour.SessionConnector.ConnectorType = SessionConnectorType.CreateOrJoin;
+            sessionConnectorBehaviour.Execute();
+            
+            DisableConnectButtons();
+        }
+        else
+        {
+            Debug.LogError("SessionConnector could not be found in the scene!");
+            hostButton.interactable = true;
+        }
+    }
+
+    private void OnHostSessionCreated(ISession session)
+    {
+        var sessionConnectorBehaviour = FindObjectOfType<SessionConnectorBehaviour>();
+        if (sessionConnectorBehaviour != null)
+        {
+            sessionConnectorBehaviour.SessionConnector.SuccessfulExecution.RemoveListener(OnHostSessionCreated);
+        }
+
+        Debug.Log("Host session created successfully! Now loading Lobby scene via Netcode...");
+
+        NetworkManager.Singleton.SceneManager.LoadScene(LobbySceneName, LoadSceneMode.Single);
     }
 }
